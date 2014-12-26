@@ -59,7 +59,9 @@
 
 
 * Time and duration
-  - All classes start at 15:00. All classes I teach (R. D-U) will end at 18:00.
+  - All classes, except for the first one, start at 15:00. All classes I
+    teach (R. D-U) will end at 18:00.
+  - The first class will start at 16:00.
   - Some of the other classes might be of two hours (instead of three).
 
 * Location
@@ -67,7 +69,8 @@
     Medicina (not Facultad de Ciencias).
 
 * Pay attention to
-  - The class will be held at seminario 5, instead of 4, on the 26, 27,
+  - The first class (13-January) starts at 16:00 (not 15:00).
+  - Classes will be held at seminario 5, instead of 4, on the 26, 27,
     and 29 January.
   - On 13 February no class is scheduled. However, we have the class reserved
     as a backup, in case (small) disasters happen.
