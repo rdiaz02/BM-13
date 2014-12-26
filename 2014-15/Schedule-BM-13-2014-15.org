@@ -1,0 +1,73 @@
+# *** Schedule BM-13 2014-2015
+
+
+# #+AUTHOR:
+#+DATE:
+#+OPTIONS: toc:nil num:nil author:nil timestamp:nil skip:nil email:nil creator:nil
+#+LaTeX: \renewcommand{\arraystretch}{2}
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
+#+LATEX_HEADER: \usepackage[a4paper,tmargin=20mm,bmargin=10mm,lmargin=30mm,rmargin=30mm]{geometry}
+#+BEGIN_LaTeX
+
+\setlength{\headheight}{1cm}
+\setlength{\headsep}{1cm}
+
+#+END_LaTeX
+
+
+# Shedule BM-13, course 2014-2015
+
+|----------------------------------+------------------+-------------|
+|----------------------------------+------------------+-------------|
+| Class                            | Date             | Location    |
+|----------------------------------+------------------+-------------|
+|----------------------------------+------------------+-------------|
+| Intro course (R. D-U)            | <2015-01-13 Tue> | Seminario 4 |
+|----------------------------------+------------------+-------------|
+| Intro Bioinfo (A. Valencia)      | <2015-01-14 Tue> | Seminario 4 |
+|----------------------------------+------------------+-------------|
+| Access to ENCODE data            | <2015-01-15 Wed> | Seminario 4 |
+| (O. Graña and D.G. Pisano)       | <2015-01-16 Thu> | Seminario 4 |
+|----------------------------------+------------------+-------------|
+| GENCODE and alternative splicing | <2015-01-20 Tue> | Seminario 4 |
+| (M. Tress)                       |                  |             |
+|----------------------------------+------------------+-------------|
+| Algorithms (R. D-U)              | <2015-01-22 Thu> | Seminario 4 |
+|                                  | <2015-01-23 Fri> | Seminario 4 |
+|                                  | <2015-01-26 Mon> | Seminario 5 |
+|                                  | <2015-01-27 Tue> | Seminario 5 |
+|----------------------------------+------------------+-------------|
+| Phylogenies (R. D-U)             | <2015-01-29 Thu> | Seminario 5 |
+|                                  | <2015-02-02 Mon> | Seminario 4 |
+|                                  | <2015-02-03 Tue> | Seminario 4 |
+|----------------------------------+------------------+-------------|
+| Funct. Genom. and Evol.          | <2015-02-04 Wed> | Seminario 4 |
+| (D. Rico and D. de Juan)         | <2015-02-05 Thu> | Seminario 4 |
+|----------------------------------+------------------+-------------|
+| Statistics and Genomics          | <2015-02-06 Fri> | Seminario 4 |
+| (R. D-U)                         | <2015-02-09 Mon> | Seminario 4 |
+|                                  | <2015-02-10 Tue> | Seminario 4 |
+|                                  | <2015-02-12 Thu> | Seminario 4 |
+|----------------------------------+------------------+-------------|
+| Sys. Biol: network reconst.      | <2015-02-16 Mon> | Seminario 4 |
+| (R. D-U)                         | <2015-02-17 Tue> | Seminario 4 |
+|----------------------------------+------------------+-------------|
+| Exam                             | <2015-02-20 Fri> | Seminario 4 |
+|----------------------------------+------------------+-------------|
+|----------------------------------+------------------+-------------|
+
+
+
+* Time and duration
+  - All classes start at 15:00. All classes I teach (R. D-U) will end at 18:00.
+  - Some of the other classes might be of two hours (instead of three).
+
+* Location
+  - Seminario 4 (most of the classes) or Seminario 5 (see below), at the Facultad de
+    Medicina (not Facultad de Ciencias).
+
+* Pay attention to
+  - The class will be held at seminario 5, instead of 4, on the 26, 27,
+    and 29 January.
+  - On 13 February no class is scheduled. However, we have the class reserved
+    as a backup, in case (small) disasters happen.
