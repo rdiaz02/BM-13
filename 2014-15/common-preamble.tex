@@ -1,0 +1,141 @@
+\documentclass[a4paper,11pt,twoside]{article}
+\usepackage[absolute,overlay]{textpos}
+\usepackage[english]{babel} %% needed for refs not to get a "~"
+
+\usepackage{lscape}
+\usepackage{array}
+\usepackage{geometry}
+\geometry{verbose,a4paper,tmargin=23mm,bmargin=26mm,lmargin=30mm,rmargin=30mm}
+
+\usepackage{setspace}
+\singlespacing
+
+\usepackage{graphicx}
+
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+
+\setcounter{secnumdepth}{5} %% paragraphs in toc
+\setcounter{tocdepth}{5}
+
+
+\usepackage{datetime} %% but I think I am not using it
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,positioning}
+
+\tikzset{
+  % Define standard arrow tip
+  >=stealth',
+  % Define style for boxes
+  punkt/.style={
+    rectangle,
+    rounded corners,
+    draw=black, %very thick,
+    %maximum width=6em,
+    %text width=6.5em,
+    minimum height=2em,
+    text centered},
+  punkt2/.style={
+    rectangle,
+    rounded corners,
+    draw=black, %very thick,
+    text width=2.35cm,
+    %text width=6.5em,
+    minimum height=2em,
+    inner sep = 2pt,
+    text centered},
+  punkt3/.style={
+    rectangle,
+%    rounded corners,
+    draw=black, %very thick,
+%    text width=1.cm,
+    %text width=6.5em,
+    minimum height=2em,
+    inner sep = 3pt,
+    text centered},
+  punkk/.style={
+    rectangle,
+    rounded corners=3mm,
+    draw=black, %very thick,
+    %text width=6.5em,
+    minimum height=2em,
+    text centered},
+  ell1/.style={
+    %ellipse,
+    %draw = black, very thick,
+    text width=1.7cm,
+    inner sep = 0pt,
+    text centered},
+  % Define arrow style
+  pil/.style={
+    ->,
+    thick,
+    shorten <=2pt,
+    shorten >=2pt,}
+}
+
+
+
+
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage[hyphens]{url}
+\usepackage[pdftex]{hyperref}
+%\usepackage{cite}
+
+\usepackage{url}
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.72}
+\newcommand{\cyan}[1]{{\textcolor {cyan} {#1}}}
+\newcommand{\blu}[1]{{\textcolor {blue} {#1}}}
+\newcommand{\Burl}[1]{\blu{\url{#1}}}
+\newcommand{\Curl}[1]{{\small \url{#1}}} %% you need to scape #
+
+\newcommand{\lgray}[1]{{\textcolor {light-gray} {#1}}}
+\newcommand{\red}[1]{{\textcolor {red} {#1}}}
+\newcommand{\green}[1]{{\textcolor {green} {#1}}}
+\newcommand{\mg}[1]{{\textcolor {magenta} {#1}}}
+\newcommand{\og}[1]{{\textcolor {PineGreen} {#1}}}
+%\newcommand{\code}[1]{\texttt{\slshape\footnotesize #1}}
+%\newcommand{\code}[1]{\texttt{\slshape #1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\opage}[1]{\texttt{[p.\ #1]}}
+\newcommand{\myverb}[1]{{\footnotesize\texttt {\textbf{#1}}}}
+\newcommand{\Rnl}{\ +\qquad\ }
+\newcommand{\Emph}[1]{\emph{\mg{#1}}}
+
+\providecommand{\tabularnewline}{\\}
+
+%\usepackage{harvard}
+\usepackage[authoryear, round, sort]{natbib}
+\bibliographystyle{myagsm} %%bbs and chicago does not show URLs 
+%%bbs and chicago does not show URLs 
+
+% /texmf/bibtex/bst/myagsm.bst
+% and then do texhash
+
+%% Algorithm2e needs to come after natbib!!
+\usepackage[boxed,vlined,linesnumbered]{algorithm2e}
+
+
+%% \usepackage{enumitem} %% not clear I need it
+\usepackage{enumerate}
+
+%% an ugly hack, because I cannot get anything else to work
+
+% \newlist{exsection}{enumerate}{10}
+% \setlist[exsection]{label*=\thesection.\arabic*.}
+
+% \newlist{exsubsection}{enumerate}{10}
+% \setlist[exsubsection]{label*=\thesubsection.\arabic*.}
+
+% \newlist{exsubsubsection}{enumerate}{10}
+% \setlist[exsubsubsection]{label*=\thesubsubsection.\arabic*.}
+
+
+% \DeclareMathOperator*{\argmax}{arg\,max}
+% \underset{x}{\operatorname{argmax}}
+
