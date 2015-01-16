@@ -24,10 +24,10 @@
 |----------------------------------+------------------+-------------|
 | Intro course (R. D-U)            | <2015-01-13 Tue> | Seminario 4 |
 |----------------------------------+------------------+-------------|
-| Intro Bioinfo (A. Valencia)      | <2015-01-14 Tue> | Seminario 4 |
+| Intro Bioinfo (A. Valencia)      | <2015-01-14 Wed> | Seminario 4 |
 |----------------------------------+------------------+-------------|
-| Access to ENCODE data            | <2015-01-15 Wed> | Seminario 4 |
-| (O. Graña and D.G. Pisano)       | <2015-01-16 Thu> | Seminario 4 |
+| Access to ENCODE data            | <2015-01-15 Thu> | Seminario 4 |
+| (O. Graña and D.G. Pisano)       | <2015-01-16 Fri> | Seminario 4 |
 |----------------------------------+------------------+-------------|
 | GENCODE and alternative splicing | <2015-01-20 Tue> | Seminario 4 |
 | (M. Tress)                       |                  |             |

@@ -2,17 +2,22 @@
 
 \title{Classical algorithms in bioinformatics. Algorithms, probability,
   dynamic programming, HMMs. \\ \vspace*{25pt} \large  Class notes for BM-13, ``Bioinformática Avanzada y
-Biología de Sistemas'', 2013-2014.}
+Biología de Sistemas'', 2014-2015.}
 
 \author{Ramón Diaz-Uriarte\\
               Dept. Bioquímica\\Universidad Autónoma de Madrid \\ 
               \texttt{ramon.diaz@iib.uam.es} \\ 
               \Burl{http://ligarto.org/rdiaz} }
 
+
+\date{\gitAuthorDate\ {\footnotesize (Release\gitRels: Rev:
+    \gitAbbrevHash)}}
+
+
 %\date{}
 
 %\date{\ddmmyyyydate \today} %needs datetime package
-\date{\the\year-\the\month-\the\day}
+% \date{\the\year-\the\month-\the\day}
 
 
 \makeindex
@@ -626,12 +631,8 @@ frequencies of bases, amino acids, probabilities of CpG islands, etc.
 
   \item $P(D_{loaded}|\mbox{4 sixes})$
 
-%% P(4 sizes) = (0.5 ^4) * 0.01 + (1/6)^4 * 0.99 = 0.0013889
-%% 0.5^4 * 0.01/((0.5 ^4) * 0.01 + (1/6)^4 * 0.99)
   \item $P(D_{loaded}|\mbox{2 sixes})$
 
-%% P(4 sizes) = (0.5 ^4) * 0.01 + (1/6)^4 * 0.99 = 0.0013889
-%% 0.5^2 * 0.01/((0.5 ^2) * 0.01 + (1/6)^2 * 0.99)
   \end{enumerate}
   
   % Durbin, 1.1
@@ -662,7 +663,6 @@ likelihoods.
   the disease if you get a positive result, and discuss whether getting
   tested or not might make sense.
 
-% 0.04/(0.04 + 0.001 * 0.96)
 
   Rethink you answers if the disease is contagious (no need for extra
   numbers here, just for your to think about whether being tested is, or
@@ -1319,22 +1319,6 @@ Make sure you understand how he is calculating the $p_{ab}$ and the $f_a,
 f_b$. 
 
 
-%% Identity 0.88. Therefore
-% 0.88 = pAA + pCC + pGG + pTT
-
-% 0.12 = \sum_{a \ne b} pab 
-% and pab = pcd, whenever a \ne b, c \ne d
-% though we need to justify that, and if we do, we can
-% use the very last two lines directly
-% 0.12 = 12 * pab and pab = 0.12/12
-
-% we said fa = .. = ft = 0.25
-% so pAA + pAC + pAG + pAT = 0.25
-% but pAC = pAG = pAT = 0.01 from previous step
-% so pAA = 0.25 - 3 * 0.01
-
-% faster, we can argue that, since equiprob. then
-% 0.88 = 4 * x, thus x = 0.22.
 
 
 \item For the last paragraph in Eddy's ``Where did the BLOSUM62 alignment
@@ -1350,13 +1334,6 @@ f_b$.
   get those target probabilities. But I want you to obtain the target
   probabilities by hand.)
 
-% > lambda <- 1.332706
-% > (.25^2) * exp(lambda) ## paa
-% [1] 0.2369555
-% > (.25^2) * exp(-2*lambda) ## pab
-% [1] 0.004348168
-
-%% ./lambda example-bg-equip.txt matrix-blastn.txt 
  
 \item Computing scores of alignments.\label{bm13-align0}
   
@@ -1436,16 +1413,6 @@ You can get the BLOSUM50 matrix here:
   \Burl{http://www.ncbi.nlm.nih.gov/IEB/ToolBox/C_DOC/lxr/source/data/BLOSUM50}. These
   are the log-odds values (i.e., the scores).
 
-% The average substitution score within the charged group is Sch = 2.66 and that
-% within the hydrophobic group is Sh = 3.22.
-% The scores of substitution between amino acids from the different groups are
-% given in Table 2.2(c) (with average S = -3.44).
-% As expected, the scores of substitution between amino acids with similar
-% physico-chemical properties (within the charged or the hydrophobic group) are
-% higher than the scores of substitution between the amino acids with different prop-
-% erties (between the groups). The sequence alignment algorithms maximizing the
-% total score will maximize the number of aligned pairs of amino acids with similar
-% physico-chemical properties.
 
 
 
@@ -1478,14 +1445,7 @@ You can get the BLOSUM50 matrix here:
       \end{figure}
 
 
-% In the DP matrix for sequences HEAGAWGHEE and PAWHEAE (Table 2.2), the
-% value of F(3, 1) on the traceback path can be obtained from both (2, 0) and (2, 1)
-% cells:
 
-
-
-
-  
     \item Statistical significance of alignments. 
 
       You have aligned two sequences, of length $m = 300$ and $n = 100$;
@@ -1499,14 +1459,6 @@ You can get the BLOSUM50 matrix here:
 
         % Basado en p. 61 de Bodorovsky.
 
-
-
-% m <- 300
-% n <- 100
-% lambda <- 0.7
-% K <- 0.1
-% S = -(1/lambda) * log(log(1 - 0.05)/(-K * m * n))
-% S = 15.6808
 
 
       \item Suppose now that the sequence of length $n = 100$ is compared
@@ -1543,22 +1495,20 @@ You can get the BLOSUM50 matrix here:
           $E-value$ and the score? You should be able to predict the
           results before doing the exercise.
 
-%% E.g., nr vs. refseq, sólo con humanos
-%% comparar NP851397.1, NP071406.1, NP002509.2
 
 
-        \item Align sequences \verb=MTADKEKKRSSSERRKEKSRD= and
-          \verb=DKEKRRSSSESSRRSSSASK= using BLAST (NCBI will work
-          here). From the summary, calculate by hand the $E-value$ and the
-          bit score. (Note: in the table from ``Search summary'', you want
-          the right column of values for Lambda and K, since those are the
-          ones used for gapped alignments).
+%         \item Align sequences \verb=MTADKEKKRSSSERRKEKSRD= and
+%           \verb=DKEKRRSSSESSRRSSSASK= using BLAST (NCBI will work
+%           here). From the summary, calculate by hand the $E-value$ and the
+%           bit score. (Note: in the table from ``Search summary'', you want
+%           the right column of values for Lambda and K, since those are the
+%           ones used for gapped alignments).
 
-%% This is no longer (2013-01-23) giving the results it should, according
-%% to tutorial in NCBI:
-%% http://www.ncbi.nlm.nih.gov/BLAST/tutorial/Altschul-1.html#head9
-%% and to
-%% http://etutorials.org/Misc/blast/Part+III+Practice/Chapter+7.+A+BLAST+Statistics+Tutorial/7.1+Basic+BLAST+Statistics/.
+% %% This is no longer (2013-01-23) giving the results it should, according
+% %% to tutorial in NCBI:
+% %% http://www.ncbi.nlm.nih.gov/BLAST/tutorial/Altschul-1.html#head9
+% %% and to
+% %% http://etutorials.org/Misc/blast/Part+III+Practice/Chapter+7.+A+BLAST+Statistics+Tutorial/7.1+Basic+BLAST+Statistics/.
 
 
 %% Also, E = m * n * 2^(-S'), where S' is the bit score. I get the bit
@@ -1691,7 +1641,7 @@ You can get the BLOSUM50 matrix here:
 
 This is an example of how we need to pay to attention to detail, and how
 doing things by hand helps us question assumptions (or realize our
-assumptions were wrong). These also shows that, often, asking the original
+assumptions were wrong). This also shows that, often, asking the original
 authors or help staff can really help sort out a problem.
 
 
@@ -1709,7 +1659,7 @@ This exercise used to work just fine:
 
 
 However, since at least 2013-01-23, that does not give the results it
-should, according to tutorial in NCBI:
+should according to tutorial in NCBI:
 \Burl{http://www.ncbi.nlm.nih.gov/BLAST/tutorial/Altschul-1.html\#head9}
 and to
 \Burl{http://etutorials.org/Misc/blast/Part+III+Practice/Chapter+7.+A+BLAST+Statistics+Tutorial/7.1+Basic+BLAST+Statistics/.}
@@ -2697,12 +2647,6 @@ presentation: \Burl{http://www.biostat.wisc.edu/bmi576/lectures/HMMs-2.pdf}.
   What about a second-order Markov model?
   % Based on Bodorovsky, 3.10, p. 74.
 
-  %% First order: start is P(ATG) = 1. Then 61*61. And 61*3 for end.
-  %% So 3721 + 183.
-  %% Second order: 
-  %% Start is P(ATG, XYZ): 61.
-  %% Transitions: P(xyz| uvw, rst): 61 * 61 * 61 > 200000
-  %% End: 61**2 * 3 ~ 11000
 
 \item HMMs to segment aCGH. \label{bm13-hmm-rueda}
   
@@ -2944,6 +2888,7 @@ Many of the exercises come from the above sources.
 %%%   mode: latex
 %%%   mode: flyspell
 %%%   coding: iso-8859-15
+%%% TeX-master: t
 %%% End:
 
 
