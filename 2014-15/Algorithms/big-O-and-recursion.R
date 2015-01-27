@@ -30,11 +30,23 @@ factorialIter <- function(x) {
 }
 
 factorialRecurse <- function(x) {
-    cat("   facotiralRecurse has been called\n")
+    cat("   factorialRecurse has been called with x = ", x, "\n")
     if(x == 1) 
         return(1)
-    return(x * fact.recurse(x - 1))
+    return(x * factorialRecurse(x - 1))
 }
 
+
+factorialRecurse2 <- function(x, d = 0) {
+    cat("   factorialRecurse has been called with x = ", x, "\n")
+    if(x == 1) {
+        cat("   The base case: 1\n")
+        return(1)
+    } else {
+        d <- d + 1
+        cat(rep("  ", d))
+        return(x * factorialRecurse2(x - 1, d))
+    }
+}
 
 
