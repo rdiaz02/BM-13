@@ -52,9 +52,10 @@ example).
 
 You can take a look at the slides ``Phylog-diapos-licenciatura.pdf''. I
 use them for the Phylogenies part of the Bioinformatics classes for the
-bachelor's degree. This is at less technical level than covered in BM-13,
-of course, but we deal with issues we will not cover here. If all of this
-seems too hard, I might use them to lecture with them on the first day.
+bachelor's degree (4º Bioquímica). This is at less technical level than
+covered in BM-13, of course, but we deal with issues we will not cover
+here. If all of this seems too hard, I might use them to lecture with them
+on the first day.
 
 % You can see some further details and worked examples about UPGMA and NJ
 % in the pages from \cite{Haubold2006}. Note error in UPGMA; and typo in
@@ -206,8 +207,9 @@ D   GGAAGGCTTT
 
 \item UPGMA, phylogenies, and microarrays.
 
-The UPGMA algorithm is the same UPGMA algorithm you saw in BM-1 for
-clustering of microarrays. When reconstructing phylogenies we use data
+% The UPGMA algorithm is the same UPGMA algorithm you saw in BM-1 for
+% clustering of microarrays.
+When reconstructing phylogenies we use data
 that (are supposed to) reflect evolutionary distances. With microarray
 data we use a different set of distances. Do you understand the
 similarities and differences? What is common and what is not in the two
@@ -228,8 +230,9 @@ scenarios?
   Now, use the NJ algorithm, to find the phylogeny (yes, we already know it,
   but we want to practice with the algorithm). 
 
-\item With the data from exercise \ref{ex81-ha}, verify the four-point
-  condition.  
+\item With the data from exercise \ref{ex81-ha}, using only the original
+  distance (not any transformations with the JK model), verify the
+  four-point condition.
 
 
 \item Using the data in \ref{bm13-filog1}, reconstruct the phylogeny of
@@ -242,7 +245,7 @@ scenarios?
   % \item NJ. Is the phylogeny rooted? Are distances additive?
   \item Maximum parsimony. (No, yo do not need to use sophisticated
     algorithms; just look carefully at the 10 characters to see which are
-    informative). Use a rooted tree.
+    informative). Use a rooted tree. 
   \end{enumerate}
 
 %% FIXME: OJO: que en upgma usen datos originales, y ojo con el de
