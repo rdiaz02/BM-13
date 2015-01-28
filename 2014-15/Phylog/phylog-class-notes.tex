@@ -207,8 +207,6 @@ D   GGAAGGCTTT
 
 \item UPGMA, phylogenies, and microarrays.
 
-% The UPGMA algorithm is the same UPGMA algorithm you saw in BM-1 for
-% clustering of microarrays.
 When reconstructing phylogenies we use data
 that (are supposed to) reflect evolutionary distances. With microarray
 data we use a different set of distances. Do you understand the
@@ -235,13 +233,14 @@ scenarios?
   four-point condition.
 
 
-\item Using the data in \ref{bm13-filog1}, reconstruct the phylogeny of
+\item Using the data in \ref{bm13-filog1} reconstruct the phylogeny of
   those four species using:
 
   \begin{enumerate}
   \item UPGMA. Is the phylogeny rooted? Are distances ultrametric? When
     you do the reconstruction, use \textbf{the original data} (so in this
-    case do not transform using Jukes-Cantor).
+    case do not transform using Jukes-Cantor ---we do this for simplicity;
+    using a model should almost always be done for real).
   % \item NJ. Is the phylogeny rooted? Are distances additive?
   \item Maximum parsimony. (No, yo do not need to use sophisticated
     algorithms; just look carefully at the 10 characters to see which are
