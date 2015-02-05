@@ -1,0 +1,668 @@
+\input{../common-preamble.tex}
+
+\title{Statistics for omics. \\ \large Class notes for BM-13, ``Bioinformática Avanzada y
+Biología de Sistemas'', 2014-2015.}
+
+\author{Ramón Diaz-Uriarte\\
+              Dept. Bioquímica\\Universidad Autónoma de Madrid \\ 
+              \texttt{ramon.diaz@iib.uam.es} \\ 
+              \Burl{http://ligarto.org/rdiaz} }
+
+%\date{}
+% \date{\the\year-\the\month-\the\day}
+
+\date{\gitAuthorDate\ {\footnotesize (Release\gitRels: Rev:
+    \gitAbbrevHash)}}
+
+
+\makeindex
+
+
+\begin{document}
+
+\maketitle
+\vspace{-0.5cm}
+
+
+\tableofcontents
+\clearpage
+
+
+
+
+
+\section{Pedagogical and scientific objectives of this module}
+
+
+The main objective of this module is to make you familiar with the ``big
+themes'' when using statistics for the analysis of omics data. In
+particular, at the end of this module you should:
+
+\begin{itemize}
+\item  Be able to identify why multiple testing is such a serious and
+  pervasive problem.
+
+\item Have a clear understanding of the need for decent estimates of
+  classification error and some of the more common procedures to obtain
+  them.
+
+\item Be familiar with survival analysis.
+
+\item Be aware of recent trends in classification/prediction
+  (penalization, wisdom of crowds, etc).
+
+\item Understand what clustering is and is not.
+
+\item Be a critical user of applications for omics data: ask what you are
+  being given, and understand whether what the application does is what
+  you \textbf{really} need to have done.
+
+\item Understand some of the questions a statistician might ask you when
+  you go looking for help.
+
+\item Be able to read the primary bioinformatics literature to understand
+  what a method does.
+
+\item Be able to read the primary bioinformatics literature with reviews
+  about methods/approaches.
+\end{itemize}
+
+
+There are no notes for this module as such, only a guide to reading and
+asking questions about a few papers.
+
+
+% Most of the above objectives will be covered if you can understand all of
+% \cite{DupuySimon07}.
+
+\section{Readings}
+
+
+We will change focus here with respect to previous blocks. Here, we will
+do a fair amount of reading. That means \textbf{you} need to do a fair
+amount of reading. We will not focus closely on the math details of
+algorithms, but we will need to keep a clear idea of what it is we are
+trying to accomplish (e.g., when we say ``I want to build a classifier
+from omics data'', what do we \textbf{really} mean?, and why would we want
+to do that?).
+
+
+
+
+We will start with a presentation, ``Stats-bioinfo-intro.pdf'', to cover
+the main issues and problems. This material should be familiar to some of
+you (4º bioquímica) and much of the first goes over issues we discussed in
+BM-1. 
+
+Then, the key here is for you to read several papers from a range of
+journals. We will start with a review of issues, and then we will read
+several papers from Bioinformatics/Computational Biology journals.
+
+
+
+First, the review: you need to understand ALL of ``Dupuy\_Simon+supp2.pdf''
+(they make a couple of contentious claims, but you need to see those too
+and be ready to counter argue). Next, read (it is short)
+``katz-kattan.pdf''.
+
+
+Now, go to ``Tarca-IMPROVER.pdf''. Read it in the way you would read it if
+you were trying to get an idea of the current state of the art in the
+field. I have provided you my annotated copy from my first reading of the
+paper; it is an example of how I do these things (just an example, my way,
+not a canonical way). I think it took me less than 20 minutes. What took
+me much longer, in comparison, was to find a clear explanation of their
+metrics (their supplementary material is provided as a Word file, and when
+I open it with LibreOffice, the equations are not displayed properly); I
+have added to the paper a presentation by them I found that shows things
+clearly.
+
+
+
+
+
+Let us jump now to survival analysis. Read
+``Survival-breast-cancer-PLoS-Comp-Biol.pdf'', again with a spirit similar
+to the above.  For completeness I am also including another paper they
+published\footnote{Is this getting close to ``double publicaton''? Think
+  about this}. You do not need to read the second paper: it is there for completeness
+and to address possible questions you might have. But you do need to read
+the PLoS Computation Biology one.
+
+
+
+Finally, read
+``Boulesteix-Hothorn-additional-pred-value-covars.pdf''. This is not easy,
+and I want you to use \textbf{your} common sense to skip over details and
+focus on the key ideas. The details are there if you need them, but in a
+first (or second or third) reading you might not need to follow everything
+in every detail.
+
+
+If we have time, we will go back to classification, but now a critical one
+about some recent (fancy?)  procedures:
+``composite-feature-classification-breast-cancer.pdf''. Read it. What are
+they doing and why? Is this of any use for things you might want to do?
+
+
+%% Fix references in Mendeley and in here!! citeulike ids are a pain!!
+
+% \begin{enumerate}
+% \item Start by reading \cite{DupuySimon07}.
+
+% \item You might want to look at the notes about p-values,
+%   classification, etc, from BM-1.
+
+% \item Take a look at the PDF of the presentation
+%   (Presentation-stats-omics.pdf). Skip most of the survival analysis
+%   stuff; get just the general ideas (the rest is there for reference).
+
+% \item If it helps, you can take a look at \cite{Diaz-Uriarte2005}; or you
+%   can just skip that material completely.
+
+% \item All of \cite{DupuySimon07} should now be clear. And all, or most, of
+%   the presentation.  
+
+% \item Read \cite{KatzKattan05}. % katz and kattan
+
+% \item Take a look at \cite{Shi2010}. Read just the main paper, but beware
+%   that there is additional info in the supplementary material.
+
+% % \item Go (quicRead \cite{citeulike:3984020}. Most of the paper should be
+% %   understandable (except for maybe a few sections). El de Braga
+% %   Neto. not for now.)
+% \item Take a look at \cite{Boulesteix2010}. What I expect from you is to
+%   understand the problem, the general ideas of the solution developed, and
+%   try to follow the logic. This paper is the one that addresses the
+%   objective listed as ``Be able to read the primary bioinformatics
+%   literature to understand what a method does.''.  
+% \end{enumerate}
+
+
+
+Please, please, \textbf{I REALLY DO EXPECT YOU TO DO THE READING ABOVE}
+before we are done (i.e., not all of it for the first day, but definitely
+before the last one). Why? Understanding that reading the primary
+Bionfo/computational biology literature is doable is a key part of this
+class. And with the reading done, we can hopefully have lively discussions
+in class going over the papers.
+
+% \section{Exercises and activities}
+% \label{sec:exercises-activities}
+
+
+\section{Exercises}
+
+
+A few will be familiar from BM-1. You \textbf{must} answer each of
+these. And you want to know how to answer them, since questions similar to
+these could be in the exam. \textbf{The most interesting exercise, however, will
+be class discussion of the papers}.
+
+%% Answers come from biophysics masters
+
+\begin{enumerate}
+
+
+\item FDR refers to:
+
+  \begin{enumerate}[(a)]
+  \item The expected proportion of false positives in a list of selected genes.
+  \item The probability that a given gene is a false positive.
+  \item The p-value before multiple testing correction.
+  \item The probability of the Type I error rate.
+  \end{enumerate}
+
+
+\item Local FDR (or ``Posterior error probability'') refers to:
+  \begin{enumerate}[(a)]
+  \item The estimated number of false positives in a set of features.
+  \item The probability that a given feature is a false positive.
+  \item The adjusted p-value after multiple testing correction.
+  \item The probability of the Type I error rate.
+
+  \end{enumerate}
+
+
+
+
+\item A microarray study uses an array with 10000 genes. If there are no
+differentially expressed genes, but we consider as "differentially
+expressed" any gene with a p-value < 0.01, then on average we will get:
+
+ \begin{enumerate}[(a)]
+\item 10 false positives for every true positive
+\item 50 false positives
+\item 100 false positives
+\item 500 false positives
+\end{enumerate}
+
+
+\item When building a classifier from gene expression (with 30000 original
+genes) data and a training sample of 100 samples, which of the following
+strategies is likely to result in a "better" classifier (where better
+means capable of predicting, with low error, the value of new samples):
+\begin{enumerate}[(a)]
+\item Using 100 genes, 50 of them with small p-values and 50 with large p-values.
+\item Using very large FDRs.
+\item A simple algorithm (e.g., nearest mean, 3-NN) that uses the values from all 30000 genes.
+\item A simple algorithm (e.g., nearest mean, 3-NN) that uses the values from 10 genes with small p-values.
+\end{enumerate}
+
+
+\item A study uses 30 patients that have developed metastasis and 40 patients
+that have not developed metastasis. Using an array of 40000 genes, a final
+set of 68 genes are selected to differentiate (to classify) between
+metastatis and no-metastasis using a Nearest Mean algorithm. Which of the
+following is true?
+\begin{enumerate}[(a)]
+\item With 70 patients and 68 genes, we are making optimal use of the
+available information, so we are likely to obtain a good classifier (one
+that will perform well with new samples).
+\item With 70 patients and 68 genes, we will probably have a serious problem of overfitting.
+\item With 70 patients and 68 genes, we should use a 3-Nearest Neighbor algorithm.
+\item With 70 patients, we probably want to use quadratic discriminant analysis or random forests.
+\end{enumerate}
+
+
+\item When analyzing time-to-event (or survival data) with microarray data:
+\begin{enumerate}[(a)]
+\item To avoid errors from censoring and truncation, we should divide the samples in 5 to 10 groups, and use methods for class prediction.
+\item We should divide the samples into two groups, and use a binary classifier.
+\item We can use a Cox model, and examine the relationship between survival and (some subset of ) the genes.
+\item Survival data are never analyzed with gene expression studies.
+\end{enumerate}
+
+\item You carry out a t-test two compare the gene expression of gene XYZ between
+patients with and without prostate cancer and you obtain a t statistic =
+2.4, with a p-value = 0.02. What does the p-value mean?
+
+\begin{enumerate}[(a)]
+\item The probability that the mean of gene XYZ is different between  the two groups is 0.02.
+\item The probability of the alternative hypothesis is 0.98 = (1 - 0.02).
+\item The probability of the null hypothesis (that there is no difference in  the mean expression of XYZ between the two groups) is 0.02.
+\item The probability of obtaining a statistic as large as, or  larger than, 1.2 is 0.02, if there is no difference in the mean between  the two groups of patients.
+\item The probability of obtaining a statistic as large as, or  larger than, 2.4 is 0.05, if there is no difference in the mean between  the two groups of patients.
+\item The probability of obtaining a statistic as large as, or  larger than, 2.4 is 0.02, if there is no difference in the mean between  the two groups of patients.
+
+\end{enumerate}
+
+
+
+
+
+\item You carry out a microarray study comparing the expression of 20000 genes
+between 10 subjects with colon cancer and 150 subjects without. If there
+are no genes with any real difference in expression between the two groups
+of subjects ...
+\begin{enumerate}[(a)]
+\item You can expect to find about 200 genes with p-values  less or equal to
+   0.01.
+ \item You can expect to find about 200 genes with p-values less or equal to 0.1.
+ \item You can expect to find about 3200 = (20000 * 0.001 * (150 + 10)) genes
+   with p-values below 0.001.
+ \item There will be no genes with p-values below 0.05.
+ \item Only genes with large fold differences will have small p-values.
+\end{enumerate}
+
+
+
+
+
+
+
+\item You just read two papers; the first (A) is searching for differential
+expression between bald and non-bald males; the second (B) is searching
+for differential expression between patients with and without
+diabetes. Study A has examined a total of 100 genes. Study B has examined
+a total of 10000 genes. Study A has found 22 genes with p-values < 0.05
+and 12 genes with p-values < 0.01. Study B has found 510 genes with
+p-values < 0.05 and 98 with p-values < 0.01. 
+\begin{enumerate}[(a)]
+\item     You are much more interested in study A. Those results provide some
+    evidence of association between gene expression and baldness.
+
+  \item      Study B is not really interesting: if there were no differences
+     between the two groups of subjects, you could expect to find at least
+     as many "significant" genes as this study found.
+
+   \item      Study A is not really interesting: if there were no differences
+     between the two groups of subjects, you could expect to find at least
+     as many "significant" genes as this study found.
+
+   \item      You are much more interested in study B. Many more genes are showing
+     a difference.
+
+   \item     Both studies show the same degree of evidence that there really is an
+    effect of the condition on the expression of genes.
+\end{enumerate}
+
+
+\item A study has developed a classifier to predict risk of breast cancer using
+gene expression data. This study has used only females, and they report
+that they have found a classifier, using only five genes (two of them
+related to progesterone receptors), that can predict the risk of breast
+cancer with only a 2\% error. Using only the data from that study, can you
+estimate the likely error of that classifier if it were applied to males?
+
+\begin{enumerate}[(a)]
+\item Yes, if you use cross-validation.
+\item    No, you cannot, since there were no males in the study.
+\end{enumerate}
+
+
+\item Suppose I have a gene expression study with 120 subjects, 60 with
+ prostate cancer and 60 without and I want to develop a diagnostic tool to
+ classify (predict) if a subject has prostate cancer or not based on his
+ gene expression. I follow this steps:
+\begin{enumerate}[1.]
+
+	\item Before developing the classifier with my data, I leave aside a
+          set (call it B) of 20 subjects (10 with and 10 without prostate
+          cancer).
+
+	\item So I have two sets, set A with 100 subjects and set B with 20
+          subjects.
+
+	\item I develop the classifier using set A and I evaluate the
+          prediction error with set B. I report the error of my classifier
+          as the error I make when classifying the subjects of set B.
+\end{enumerate}
+
+Is this an example of cross-validation?
+
+
+\item For the detection of breast cancer there are several well
+  established clinical indicators. Suppose a paper claims that, using high
+  throughput techniques (e.g., microarrays) they can provide improved
+  diagnostic accuracy.  What should they do to convince you of the
+  clinical utility of their method?
+
+
+
+
+\item Dupuy and Simon, in their paper "Critical Review of Published Microarray Studies for
+Cancer Outcome and Guidelines on Statistical Analysis and Reporting" say
+in their Checlist number 9: "Don't Transform time-to-outcome data into a binary outcome variable if the goal is to predict groups with different survival probabilities."
+
+Why? What is a better approach?
+
+\item Dupuy and Simon, in their paper "Critical Review of Published
+  Microarray Studies for Cancer Outcome and Guidelines on Statistical
+  Analysis and Reporting" say in their Checlist number 14: ``Don't Use
+  class discovery methods if you are interested in classifying new samples
+  in the future." Explain what they mean (remember: class discovery is
+  another name for clustering).
+
+
+\item Suppose you want to develop an algorithm to detect early colorectal cancer.  Why do you need cross-validation,  bootstrap, or similar procedures to assess the classification error?
+
+\item Explain, briefly, the differences between clustering and
+  classification. List one scenario where clustering is the right approach
+  (and classification won't work) and one scenario where classification is
+  the right approach (and clustering is not).
+
+
+\item What is this wisdom of crowds thing? Where do you see it in the
+  papers we've read? 
+
+\item Again: read the papers, annotate them, think through them, and how
+  they relate to your own work.
+\end{enumerate}
+
+
+
+\section{Web-based applications activities}
+
+These are things you might play around if you want to. We will not have
+time to go over this.
+
+% \textbf{(If time permits; do not try it the first day!!!)}
+
+
+% Make sure you do the activities and understand the output. We will discuss
+% these in class and they could also be part of the exam.
+
+
+There might be details you do not understand; in that case, go to the help
+of the application. Note that Pomelo II contains tutorials, and a much
+more extensive help system.
+
+In the following activities, if some figures seem missing, or if it takes
+forever to load, or you get 502 errors, etc, refresh the page. 
+
+% (And I am the [co-]author of these applications, which means I am more
+% familiar and frustrated with their shortcomings. So do not be afraid to be
+% critical).
+
+
+\begin{enumerate}
+
+\item Differential expression. We will use Pomelo II
+  (\Burl{http://pomelo2.iib.uam.es/}) as an example.
+  \begin{enumerate}
+  \item Go to
+    \Burl{http://pomelo2.iib.uam.es/Examples/LeukemiaGolub/results.html}. All
+    of the results should be easy to understand. Make sure you get to the
+    bottom of the page. Those dendrograms and heatmaps are very common in
+    papers. 
+
+  \item Go to
+    \Burl{http://pomelo2.iib.uam.es/Examples/index.html}. Select
+    ``Srbct example'' from the box of called ``TRY IT OUT'' (under
+    ``ANOVA and other linear models''). Follow the instructions. 
+
+    What is the output shown in the main results page? What is being
+    tested or examined there? (That is an F test, and this was a
+    four-class problem).
+
+
+    Go to ``Compare classes'' (at the top of the main results). What can
+    you do there? How many two-class comparisons can you make? Does it
+    make sense to try all?
+
+    Change the FDR criterion. What happens? 
+
+    Draw Venn diagrams. What do they tell you? What happens when you
+    change the FDR? Does it make sense? And how many comparison can you
+    show? 
+
+
+
+  \item Go to
+    \Burl{http://pomelo2.iib.uam.es/Examples/index.html}. Select
+    ``Breast example'' from the box of called ``TRY IT OUT'' (under
+    ``ANOVA and other linear models'').  Follow the steps (i.e., select
+    the Anova linear models test, and select ``Send covariables'). What is
+    this all about? What are we doing? Play around with it, and try to see
+    what happens; you can run it with some or all or none of the
+    covariables. Start, for instance, by using Age.
+
+    Think about a situation where a plot of the covariables would probably
+    indicate problems or trouble. What would that plot look like? 
+
+    Think about a situation where you really, really, think you should
+    include a covariate: how would results differ?
+
+
+
+  \end{enumerate}
+
+
+
+\item Classification. We will use as an example the web-based
+  applications Tnasas\footnote{Tnasas is an acronym for ``This is Not A
+    Substitute for A Statistician''} (\Burl{http://tnasas.iib.uam.es})
+  and GeneSrF   (\Burl{http://genesrf.iib.uam.es}).
+  \begin{enumerate}
+  \item Look at the class prediction algorithms available. Have we
+    mentioned all of them in the class notes? Can you understand what each
+    is doing from the help?
+
+
+  \item Look at the commented example in
+    \Burl{http://tnasas.iib.uam.es/Examples/Leukemia.DLDA.F/tnasas-results.html}. Make
+    sure you understand it. In particular, understand the meaning of the
+    different lines and how we say we can build a predictor. Is the set of
+    genes stable?
+    
+  \item Go now to a four-class example:
+    \Burl{http://tnasas.iib.uam.es/Examples/Srbct.SVM.F/results.html}. Notice
+    that methods might have changed. Do you understand the output? Is the
+    overall error rate helpful to understand how you (miss)classify the
+    different groups? Look at the tabular output under ``OOB predictions''
+    (almost at the bottom).
+
+    Now go to a different application, but the same data set:
+    \Burl{http://genesrf.iib.uam.es/Examples/Srbct/results.html};
+    scroll to ``OOB Predictions''; you should see four graphs (if you
+    don't, force the browser to refresh the page). If you do not
+    understand what each graph is, go to the help (for instance,
+    \Burl{http://genesrf.iib.uam.es/help/genesrf-help.html\#f2}). What
+    do you see, or don't see, here compared to the output from Tnasas?
+    What do you like better and why?
+
+    
+  \item Go to an example where no predictor can be built:
+    \Burl{http://tnasas.iib.uam.es/Examples/Nothing/results.html}. Do
+    you understand what is happening?
+    
+  \item What would you like to see in this application? What do you think
+    is missing? What is misleading?
+
+
+  \end{enumerate}
+
+\item Prediction with survival data. We will use as an example the
+  web-based application SignS{http://signs2.iib.uam.es}.
+
+  \begin{enumerate}
+  \item Get familiar with some of the output. Go to the first commented
+    example:
+    \Burl{http://signs2.iib.uam.es/Examples/CommentedExample/results.html}.  
+    Focus on the main ideas (i.e., do not pay too much attention to the
+    clustering). What do you think is a bad idea about how the performance
+    of the methods is measured?
+
+  \item Go to the second commented example:
+    \Burl{http://signs2.iib.uam.es/Examples/InversionSignsCoeffs/results.html}. Make
+    sure you understand what is happening.
+
+
+  \item Among the methods available, which one would you choose, and why?
+    No, I am not asking you to go to the literature and look for a review;
+    just based on the class notes, which one would you choose? Or which
+    one would you not use?
+  
+  \item How does the purpose and methods of this application differ from
+    what you were offered in Pomelo II. For instance, this example output:
+    \Burl{http://pomelo2.iib.uam.es/Examples/Cox/results.html}. Check
+    the help of Pomelo if you need help:
+    \Burl{http://pomelo2.iib.uam.es/help/pomelo2-help.html\#toc9}. 
+  
+  \item What would you like to see in this application? What do you think
+    is missing? What is misleading?
+  \end{enumerate}
+
+ 
+  
+\end{enumerate}
+
+
+% \subsection{Extra activities: only if time permits (and it most likely won't)}
+% \label{sec:extra-activ-only}
+
+% As the day of the class approaches, and depending on the calendar, your
+% interests, etc, we will discuss which one of these to do. A motivating
+% note: the first exercise gives you an option to have your favorite (or
+% most disliked) paper examined critically by a group of people.
+
+
+% \begin{enumerate}
+
+
+% \item Critical evaluation of the literature that uses methods of
+%   differential expression and classification.
+
+%   Identify, preferably in recent papers from high-impact journals (e.g.,
+%   Nature, Science, NEJM, Lancet, etc) one paper that uses high-throughput
+%   data to build classifiers or identify genes/proteins with differential
+%   behavior. You might want to look for papers that are related to your own
+%   area of work.  Evaluate the methods used.
+
+%   I do not list the items in your checklist: it is your job to do a
+%   thorough evaluation and, thus, to come up with a comprehensive list of
+%   items to check. Start using \cite{DupuySimon07} as a guide. I will show
+%   you my own checklist when we do the exercise.
+
+
+% \item Critical evaluation of web-based applications for microarray data
+%   analysis.
+
+%   Look at recently modified or created web-based applications for the
+%   analysis of microarray data (the web server issue of \textit{Nucleic
+%     Acids Research} could help you locate them). Find at least one for
+%   differential expression and at least one for classification or survival
+%   analysis problems, Evaluate if they are using appropriate approaches.
+  
+%   I do not list the items in your checklist: it is your job to do a
+%   thorough evaluation and, thus, to come up with a comprehensive list of
+%   items to check. Start using \cite{DupuySimon07} as a guide. I will show
+%   you my own checklist when we do the exercise.
+
+
+% \item BioConductor and R.
+
+%   Go to the BioConductor page (\Burl{http://www.bioconductor.org}) and
+%   locate at least one package that will do analysis of:
+%   \begin{enumerate}[(a)]
+%   \item Differential expression, with moderated statistics.
+%   \item Classification.
+%   \item Survival analysis.
+%   \item Clustering.
+%   \end{enumerate}
+  
+
+%   Repeat that exercise going to the R web page
+%   (\Burl{http://cran.r-project.org}). You will then need to search for
+%   ``packages''. The ``Task views'' are also useful.
+
+
+
+% \end{enumerate}
+
+
+
+
+\section{Bibliographic notes}
+
+In addition to the papers you will be reading, you can find many of these
+topics discussed at book length in the books by \cite{Dziuda2010} and
+\cite{Simon-book-2004} (among many, many others). The book by Dziuda is at
+the library. Much more technical books are available (if you know R, I'd
+recommend in particular \cite{James2013} which can be freely and legally
+downloaded from \Burl{http://www-bcf.usc.edu/~gareth/ISL/}). There are
+also a bunch of references in the slides. Another book
+filled with statistical common sense and good practice is the excellent
+one from F.\ Harrell ``Regresion modeling strategies'', though it is not
+directly targeted to high-dimensional problems (but you will learn a lot
+about survival analysis from it).
+
+
+\bibliography{library}
+
+
+\end{document}
+
+
+%% very clean run:
+%% rm *.idx; rm *.toc; rm *.out; rm *.blg; rm *.log; rm *.aux; rm *.dvi; rm *.bbl; texi2pdf algorithms-class-notes.tex
+
+%%% Local Variables:
+%%%   mode: latex
+%%%   mode: flyspell
+%%%   coding: iso-8859-15
+%%% End:
+
+
+
