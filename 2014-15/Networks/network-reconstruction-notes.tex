@@ -1,0 +1,310 @@
+\input{../common-preamble.tex}
+
+
+\title{Systems biology: network reconstruction. \\
+\large Class notes for BM-13, ``Bioinform\'atica Avanzada y
+Biolog\'ia de Sistemas'', 2014-2015.}
+
+
+\author{Ram\'on Diaz-Uriarte\\
+              Dept. Bioqu\'imica\\Universidad Aut\'onoma de Madrid \\ 
+              \texttt{ramon.diaz@iib.uam.es} \\ 
+              \Burl{http://ligarto.org/rdiaz} }
+
+
+%\date{}
+% \date{\the\year-\the\month-\the\day}
+\date{\gitAuthorDate\ {\footnotesize (Release\gitRels: Rev:
+    \gitAbbrevHash)}}
+
+
+
+\makeindex
+
+\begin{document}
+
+\maketitle
+\vspace{-0.5cm}
+
+
+\tableofcontents
+\clearpage
+
+
+
+\section{Introduction}
+
+This is the scenario:
+
+
+You have read a paper/seen a conference presentation/whatever where
+someone showed what they called a ``network''. For instance, what they
+called a regulatory network based on gene expression data. You have also
+been hearing some of the buzz words, such as ``network motifs'',
+``Bayesian networks'', ``ARACNE'', ``partial correlations'', etc.
+
+You are intrigued by this\footnote{You like the pretty pictures too, but
+  that should be besides the point} and, since you have several
+interesting microarray data sets, you decide to find out what you can get
+out of your data if you try this network reconstruction stuff.
+
+Alternatively (and most likely a better reason) you are interested in
+understanding how sets of genes relate to each other, since you are
+already persuaded that genes do not work one-at-a-time, but sometimes
+operate in concert, interact with others, etc.
+
+Regardless what your initial reasons are, you decide to give a try to this
+network reconstruction business.  You decide to go to the literature to
+find out what these networks are about, and how they can be reconstructed,
+and how they can be interpreted. Crucially, you want to know if the
+reconstructions are really doing a good job at reconstructing the true
+network (i.e., something like whether or not they are recovering ``the
+truth''\footnote{I used quotes around ``truth'' because that is/can be a
+  slippery concept. A delightful read on this subject is the book ``Truth,
+  a guide'', (Oxford University Press, 2005) by the British philosopher
+  Simon Blackburn. We also touched upon the ``truth of the model'' issue
+  when discussing the ``tell me how it works'' vs.\ the ``black box''
+  approaches in classification.}). Thus, you definitely want to read
+comparative reviews of methods performance. But, again, once that is taken
+care of, you need to worry about interpretation.
+
+
+
+\subsection{Pedagogical and scientific objectives of this module}
+
+We only touch here on a very, very minor part of ``systems biology'' but
+one that has generated lots of literature (in addition to lots of figures
+in papers).  Systems biology is arguably an important research area, but
+some people think it might have been oversold, and there is still a huge
+``hype factor''.  One specific problem is confounding what we would like
+to do (e.g., infer a network of interacting genes) with what we can really
+do given our current statistical and computational tools. An important
+skill is understanding that getting a picture does not mean: a) that the
+stuff in the picture really represents anything real; b) that if there is
+anything real in the data, it will be shown in the picture\footnote{This, by the way,
+affects other techniques we have seen (e.g., clustering)}.
+
+
+
+
+Some of the major general objectives of this module are to help you
+acquire the following habits:
+
+\begin{itemize}
+\item Read methodological/statistical reviews of method performance as the
+  only reasonable way to decide what  method to use.
+
+\item Systematically ask what it is that the methods are answering. Are
+  they giving you what you want? Or something entirely different?
+
+\item Answer the previous question by being willing to go and look in the
+  primary literature to really understand what a method is doing.
+
+\item Be critical of the literature you read: there are great papers, and
+  there are very poor papers (or poor for your objectives).
+
+\end{itemize}
+
+
+Some objectives of this module specific to systems biology are:
+
+\begin{itemize}
+\item Familiarize you with basic ideas and concepts about networks.
+
+\item Familiarize you with the best methods available for network
+  reconstruction.
+
+\end{itemize}
+
+
+
+There are no notes for this module as such, only a guide to reading and
+asking questions about a few papers.
+
+
+
+
+\section{Activities}
+
+
+We will be discussing the papers below in class. But the idea is that each
+one of you (individually) gives a 10 minute presentation.  In this class
+we have gone through:
+
+\begin{itemize}
+\item Carefully looking at technical issues and expressions in textbooks
+  (DP, HMM, Phylogenies).
+\item Taking a quick look at papers from the primary bioinformatics
+  literature (Phylogenies, stats).
+\item Reading carefully papers from the primary bioinformatics literature
+  (stats).
+\end{itemize}
+
+After this, you should be ready to do this on your own from beginning to
+end. Thus, give a 10 minute presentation where you provide:
+
+\begin{itemize}
+\item A brief intro to networks: what they are, types, uses.
+\item Discuss/comment on results about method performance. I would focus
+  on network reconstruction as in the \cite{Marbach2012},
+  \cite{Marbach2010} and \cite{Narendra2011} papers. But you can do
+  something else (e.g., boolean networks, signaling, flux balance,
+  etc). Just motivate it. We want to know what \textbf{you} would suggest
+  the rest of us, based on the literature.
+\item If the state of the field sucks, maybe you cannot give any
+  recommendation and you are forced to tell us to go do the comparisons
+  ourselves, or whatever. Just explain what leads you to this
+  recommendation. 
+\end{itemize}
+
+
+% We will be discussing these issues in class, so you should be able to
+% provide reasonable answers to the questions. Some of this material might
+% be in the exam, too. 
+
+
+\section{Suggestion for things to think about}
+
+These are suggestions. You should definitely cover these, and these might
+give you ideas for your presentation. In addition, we will be discussing
+these issues in class, so you should be able to provide reasonable answers
+to the questions. Some of this material might be in the exam, too.
+
+
+
+\begin{enumerate}
+\item Read \textbf{first} the papers that compare network reconstruction
+  methods: 
+  
+  \begin{itemize}\label{net1}
+
+    \item \cite{Marbach2012}
+  \item \cite{Marbach2010} %Marbach et al., 2010, \textit{PNAS}
+  \item \cite{Narendra2011} %Narendra et al., 2011, \textit{Genomics}
+  \end{itemize}
+
+  \begin{enumerate}
+    
+  \item What are the differences between the data used by both papers? What
+    are the advantages and disadvantages of each type of data?
+  \item How do the papers differ in their evaluation of quality of
+    reconstruction? (these are the ``benchmarks'' or ``performance
+    metrics''). Are any of the metrics similar between papers? In what
+    situations could each be more interesting?
+  \item \cite{Marbach2010} %citeulike:6895598} % Marbach
+    talk about recovering ``network motifs'': what does this perspective add
+    (or subtracts)? If you do not know what ``network motif'' means, search
+    for it (the Wikipedia is a good place to start).
+    
+  \item ``Simple is good'': is this message common to both papers? Do you
+    find anything similar in what we have seen in classification problems
+    (previous module)? Could there be any common statistical, biological, or
+    computational reason?
+  \item If you had to reconstruct a transcriptional network today, what
+    method would you use?
+    
+  \end{enumerate}
+
+\item Read, \textbf{next}, these papers about network reconstruction,
+  \textbf{in this order}:
+  \begin{itemize}
+  \item \cite{Hyduke2010}
+  \item \cite{Kim-Transcriptional-2009}
+  \item \cite{Butts-networks-2009}
+  \end{itemize}
+
+  \begin{enumerate}
+  \item Do you notice any change in language between these three papers?
+    What about between these three and the previous two? For
+    instance, pay attention to expressions such as cis/trans, metrics,
+    small-scale, flux-balance. Is this just terminology, or are there
+    differences in the concepts being emphasized?
+  \item Is there any qualitative change in methodology with signaling networks?
+  \item Do you find any comparative \textbf{evidence} of the performance
+    of different methods?
+  \item What do you get out (if you get anything out) of
+    \cite{Butts-networks-2009} when thinking about modeling and
+    reconstruction? Explain the sentence ``To represent an empirical
+    phenomenon as a network is a theoretical act.'' and its possible
+    consequences when comparing the previous two papers (section
+    \ref{net1}).
+  \item In this set of papers, s the difference between reconstruction and
+    analysis clear? What about the previous two? Which field
+    (reconstruction vs.\ analysis) do you think is more mature? What are
+    the differences and similarities between the formalisms for analysis
+    and inference of networks?
+  \item Are there any connections with synthetic biology? How could it be
+    used to infer networks? Is synthetic biology ever mentioned in the
+    previous two papers?
+  \end{enumerate}
+
+
+% \item As the \textbf{one before last} step, read \cite{LeeTzou2009}.
+%   \begin{enumerate}
+%   \item What does it add?
+%   \item Is any information about performance of methods mentioned?
+%   \item Does it recommend any method that other papers mention as a poor
+%     method?
+
+
+\item Almost finally \ldots so now you have networks. Different ones, from
+  different data. How do you ``integrate'' them? How do you find
+  ``modules''?  you care about this, you might want to start by reading
+  \cite{Mitra2013}.
+
+
+
+\item To really finish now, read \cite{Emmert-Streib2014}. This is about
+  the biological interpretation of networks from gene expression data. Do
+  they achieve it? What do they propose to do?
+% \end{enumerate}
+
+
+\item \textbf{Finally}, go to the literature and try to locate:
+  \begin{enumerate}
+  \item Any papers that cite one of the first ones, and that provide
+    further, more recent reviews of method performance.
+  \item If there are none, then any recent paper that cites one the first
+    two, and uses that to guide their choice of methods or their
+    development of a new method.
+  \end{enumerate}
+
+
+  For the above activities I usually try PubMed and then Google
+  Scholar. Both allow one to search for papers that cite a given
+  paper. (From PubMed, if you go to the paper page in the journal where it
+  was published, you can often find additional links to get to papers that
+  cite that one).
+
+
+  You should find at least one paper among those two options, read it, and
+  be ready to talk about it in class (no, you do not need to
+  prepare slides, etc; just be able to share your findings).
+
+\end{enumerate}
+
+
+\bibliography{library}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+%% very clean run:
+%% rm *.idx; rm *.toc; rm *.out; rm *.blg; rm *.log; rm *.aux; rm *.dvi; rm *.bbl; texi2pdf algorithms-class-notes.tex
+
+%%% Local Variables:
+%%%   mode: latex
+%%%   mode: flyspell
+%%%   coding: iso-8859-15
+%%% End:
+
+
+
